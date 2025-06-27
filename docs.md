@@ -684,7 +684,7 @@ Option.Some(42).toString() // → 'Some(42)'
 
 ### `match`
 
-**Description:** Pattern-matches on ADT values.
+**Description:** Pattern-matches on ADT values. Includes a default branch.
 
 **Signature:** `{ tag: (...args) → b } → ADT → b`
 

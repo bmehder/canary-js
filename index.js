@@ -109,7 +109,7 @@ export const createADT = variants => {
 }
 
 export const match = cases => val => {
-	const handler = cases[val._tag]
+	const handler = cases[val._tag] || cases._
 	if (!handler) throw new Error(`No match for ${val._tag}`)
 	return handler(...val._args)
 }
