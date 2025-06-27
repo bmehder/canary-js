@@ -105,6 +105,7 @@ console.log(result) // → [12, 14]
 | Fantasy‑Land‑certified ADTs                      | SanctuaryJS     |
 | Lenses, traversals, profunctors (brace yourself) | Ramda & friends |
 
+
 CanaryJS keeps the water shallow; when you’re ready to dive, Ramda and Sanctuary have the deep end nicely chlorinated.
 
 ---
