@@ -53,6 +53,10 @@ export declare const round: (x: number) => number
 export declare const equals: <T>(a: T) => (b: T) => boolean
 export declare const not: (x: any) => boolean
 export declare const negate: <T>(fn: (x: T) => boolean) => (x: T) => boolean
+export declare const lt: (a: number) => (b: number) => boolean
+export declare const lte: (a: number) => (b: number) => boolean
+export declare const gt: (a: number) => (b: number) => boolean
+export declare const gte: (a: number) => (b: number) => boolean
 
 // Control Flow
 export declare const ifElse: <T>(pred: (x: T) => boolean) => (onTrue: (x: T) => any) => (onFalse: (x: T) => any) => (x: T) => any

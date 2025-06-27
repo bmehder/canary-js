@@ -378,6 +378,62 @@ pow(2)(3) // → 8
 
 ---
 
+---
+
+### `lt`
+
+**Description:** Returns `true` if the second value is less than the first.
+
+**Signature:** `Number → Number → Boolean`
+
+```js
+lt(5)(3) // → true
+lt(3)(5) // → false
+```
+
+---
+
+### `lte`
+
+**Description:** Returns `true` if the second value is less than or equal to the first.
+
+**Signature:** `Number → Number → Boolean`
+
+```js
+lte(5)(5) // → true
+lte(5)(4) // → true
+lte(5)(6) // → false
+```
+
+---
+
+### `gt`
+
+**Description:** Returns `true` if the second value is greater than the first.
+
+**Signature:** `Number → Number → Boolean`
+
+```js
+gt(3)(5) // → true
+gt(5)(3) // → false
+```
+
+---
+
+### `gte`
+
+**Description:** Returns `true` if the second value is greater than or equal to the first.
+
+**Signature:** `Number → Number → Boolean`
+
+```js
+gte(5)(5) // → true
+gte(4)(5) // → true
+gte(6)(5) // → false
+```
+
+---
+
 ## Objects
 
 ### `keys`

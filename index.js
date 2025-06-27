@@ -51,6 +51,10 @@ export const round = Math.round
 export const equals = a => b => a === b
 export const not = x => !x
 export const negate = fn => x => !fn(x)
+export const lt = a => b => b < a
+export const lte = a => b => b <= a
+export const gt = a => b => b > a
+export const gte = a => b => b >= a
 
 // Control Flow
 export const ifElse = pred => onTrue => onFalse => x =>
