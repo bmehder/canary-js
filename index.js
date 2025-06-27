@@ -20,6 +20,7 @@ export const at = idx => xs => xs.at(idx)
 export const includes = val => xs => xs.includes(val)
 export const sort = fn => xs => [...xs].sort(fn)
 export const reverse = xs => [...xs].reverse()
+export const length = val => val.length
 
 // String
 export const startsWith = substr => str => str.startsWith(substr)

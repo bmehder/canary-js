@@ -1,5 +1,6 @@
 // CanaryJS TypeScript Definitions (partial)
 
+// Array
 export declare const flat: <T>(xs: T[][]) => T[]
 export declare const concat: <T>(ys: T[]) => (xs: T[]) => T[]
 export declare const join: (sep: string) => (xs: string[]) => string
@@ -19,6 +20,7 @@ export declare const at: (idx: number) => <T>(xs: T[]) => T | undefined
 export declare const includes: <T>(val: T) => (xs: T[]) => boolean
 export declare const sort: <T>(fn: (a: T, b: T) => number) => (xs: T[]) => T[]
 export declare const reverse: <T>(xs: T[]) => T[]
+// TODO: length
 
 // String
 export declare const startsWith: (substr: string) => (str: string) => boolean

@@ -242,6 +242,26 @@ trim('  hello  ') // → 'hello'
 toUpper('hi') // → 'HI'
 ```
 
+### `startsWith`
+
+**Description:** Checks if a string starts with the value.
+
+**Signature:** `String → Boolean`
+
+```js
+startsWith('he')('hello') // → true
+```
+
+### `endsWith`
+
+**Description:** Checks if a string ends with the value.
+
+**Signature:** `String → Boolean`
+
+```js
+startsWith('a')('hello') // → false
+```
+
 ### `toLower`
 
 **Description:** Converts a string to lowercase.
@@ -250,26 +270,6 @@ toUpper('hi') // → 'HI'
 
 ```js
 toLower('HI') // → 'hi'
-```
-
-### `replace`
-
-**Description:** Replaces part of a string with another.
-
-**Signature:** `String | RegExp → String → String → String`
-
-```js
-replace('l')('r')('hello') // → 'herlo'
-```
-
-### `match`
-
-**Description:** Returns matches against a RegExp.
-
-**Signature:** `RegExp → String → [String] | null`
-
-```js
-match(/\w+/g)('hello world') // → ['hello', 'world']
 ```
 
 ---
@@ -286,44 +286,44 @@ match(/\w+/g)('hello world') // → ['hello', 'world']
 add(2)(3) // → 5
 ```
 
-### `sub`
+### `subtract`
 
 **Description:** Subtracts the second number from the first.
 
 **Signature:** `Number → Number → Number`
 
 ```js
-sub(5)(2) // → 3
+subtract(5)(2) // → 3
 ```
 
-### `mul`
+### `multiply`
 
 **Description:** Multiplies two numbers.
 
 **Signature:** `Number → Number → Number`
 
 ```js
-mul(3)(4) // → 12
+multiply(3)(4) // → 12
 ```
 
-### `div`
+### `divide`
 
 **Description:** Divides the first number by the second.
 
 **Signature:** `Number → Number → Number`
 
 ```js
-div(10)(2) // → 5
+divide(10)(2) // → 5
 ```
 
-### `mod`
+### `modulo`
 
 **Description:** Gets the remainder of division.
 
 **Signature:** `Number → Number → Number`
 
 ```js
-mod(10)(3) // → 1
+modulo(10)(3) // → 1
 ```
 
 ### `abs`
@@ -422,22 +422,12 @@ fromEntries([['a', 1]]) // → { a: 1 }
 
 ### `prop`
 
-**Description:** Safely gets a property from an object.
+**Description:** Gets a property from an object.
 
 **Signature:** `String → Object → a`
 
 ```js
 prop('a')({ a: 1, b: 2 }) // → 1
-```
-
-### `merge`
-
-**Description:** Merges two objects.
-
-**Signature:** `Object → Object → Object`
-
-```js
-merge({ a: 1 })({ b: 2 }) // → { a: 1, b: 2 }
 ```
 
 ---
@@ -454,14 +444,14 @@ merge({ a: 1 })({ b: 2 }) // → { a: 1, b: 2 }
 not(true) // → false
 ```
 
-### `eq`
+### `equals`
 
 **Description:** Checks strict equality.
 
 **Signature:** `a → a → Boolean`
 
 ```js
-eq(2)(2) // → true
+equals(2)(2) // → true
 ```
 
 ### `lt`

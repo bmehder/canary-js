@@ -9,7 +9,7 @@
 > **CanaryJS wraps the JavaScript you already know in a functional overcoat, then offers you a nice cup of tea.**
 >
 > * Includes most built-in JS methods—but curried, data-last, and pleasantly unfussy.
-> * Designed to be simple enough for mortals, not JS monks.
+> * Designed to be simple enough for mortals.
 > * Easy to learn, hard to outgrow.
 > * Works great on its own, or as an on-ramp to Ramda and Sanctuary.
 
@@ -20,7 +20,7 @@ If you’ve glanced at **lodash/fp** and felt it looked a bit like a supermarket
 ## Installation
 
 ```bash
-npm i canaryjs
+npm i canary-js
 ```
 
 Zero dependencies. ES Module. Tree‑shakable.
@@ -54,7 +54,7 @@ console.log(result) // → [12, 14]
 | **Curried & data‑last**    | Functions take arguments one at a time, with data passed last—perfect for `pipe`. |
 | **Pure & predictable**     | No mutation. Functions always return the same output for the same input.          |
 | **Partial application**    | You can pass fewer arguments to get a new function. Build behavior gradually.     |
-| **Built‑ins first**        | Array, String, Number, Object, Boolean methods—it’s curried and calm, bruv.       |
+| **Built‑ins first**        | Array, String, Number, Object, Boolean methods—it’s curried and calm, innit.       |
 | **Ramda‑compatible names** | Familiar territory if you graduate.                                               |
 | **Small surface**          | \~60 functions; your brain remains un‑overheated.                                 |
 
@@ -64,23 +64,23 @@ console.log(result) // → [12, 14]
 
 ### Arrays
 
-`map`, `filter`, `reduce`, `find`, `findIndex`, `findLast`, `some`, `every`, `includes`, `at`, `flat`, `flatMap`, `slice`, `concat`, `join`, `reverse`, `sort`
+`map`, `filter`, `reduce`, `find`, `findIndex`, `findLast`, `indexOf`, `lastIndexOf`, `some`, `every`, `includes`, `at`, `flat`, `flatMap`, `slice`, `concat`, `join`, `reverse`, `sort`, `length`
 
 ### Strings
 
-`split`, `trim`, `toUpper`, `toLower`, `replace`, `match`
+`split`, `trim`, `toUpper`, `toLower`, `startsWith`, `endsWith`
 
 ### Numbers
 
-`add`, `sub`, `mul`, `div`, `mod`, `abs`, `floor`, `round`, `ceil`, `pow`
+`add`, `subtract`, `multiply`, `divide`, `modulo`, `abs`, `floor`, `round`, `ceil`, `pow`, `not`, `negate`
 
 ### Objects
 
-`keys`, `values`, `entries`, `fromEntries`, `prop`, `merge`
+`keys`, `values`, `entries`, `fromEntries`, `prop`
 
 ### Comparison & Boolean
 
-`not`, `eq`, `lt`, `lte`, `gt`, `gte`
+`equals`, `not`, `negate`, `eq`, `lt`, `lte`, `gt`, `gte`
 
 ### Core Utilities
 
