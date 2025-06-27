@@ -1,5 +1,8 @@
 # CanaryJS
 
+[![npm version](https://img.shields.io/npm/v/canary-js.svg)](https://www.npmjs.com/package/canary-js)
+
+
 *A minimalist, functional JavaScript toolkit for mere mortals.*
 
 ---

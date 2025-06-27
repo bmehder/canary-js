@@ -1,8 +1,9 @@
 {
 	"name": "canary-js",
-	"version": "0.9.6",
-	"description": "A minimalist, functional JavaScript toolkit for mere mortals.",
+	"version": "0.9.7",
+	"description": "A minimalist, functional JavaScript toolkit for mere mortals. Curried, data-last, and easy to learn.",
 	"main": "index.js",
+	"types": "index.d.ts",
 	"type": "module",
 	"exports": "./index.js",
 	"keywords": [
@@ -10,12 +11,20 @@
 		"javascript",
 		"fp",
 		"toolkit",
-		"canary"
+		"curried",
+		"data-last",
+		"canaryjs",
+		"ramda",
+		"sanctuary"
 	],
-	"author": "Your Name",
+	"author": "Brad Mehder",
 	"license": "MIT",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/bmehder/canary-js"
-	}
+	},
+	"bugs": {
+		"url": "https://github.com/bmehder/canary-js/issues"
+	},
+	"homepage": "https://github.com/bmehder/canary-js#readme"
 }
