@@ -1,0 +1,21 @@
+{
+	"name": "canaryjs",
+	"version": "0.9.0",
+	"description": "A minimalist, functional JavaScript toolkit for mere mortals.",
+	"main": "index.js",
+	"type": "module",
+	"exports": "./index.js",
+	"keywords": [
+		"functional",
+		"javascript",
+		"fp",
+		"toolkit",
+		"canary"
+	],
+	"author": "Your Name",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/bmehder/canaryjs"
+	}
+}
