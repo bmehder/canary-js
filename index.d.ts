@@ -9,7 +9,9 @@ export declare const lastIndexOf: <T>(val: T) => (xs: T[]) => number
 export declare const flatMap: <T, U>(fn: (x: T) => U[]) => (xs: T[]) => U[]
 export declare const map: <T, U>(fn: (x: T) => U) => (xs: T[]) => U[]
 export declare const filter: <T>(fn: (x: T) => boolean) => (xs: T[]) => T[]
-export declare const reduce: <T, U>(fn: (acc: U) => (x: T) => U) => (init: U) => (xs: T[]) => U
+export declare const reduce: <T, U>(
+	fn: (acc: U, x: T) => U
+) => (init: U) => (xs: T[]) => U
 export declare const slice: (start: number) => (end: number) => <T>(xs: T[]) => T[]
 export declare const find: <T>(fn: (x: T) => boolean) => (xs: T[]) => T | undefined
 export declare const findIndex: <T>(fn: (x: T) => boolean) => (xs: T[]) => number

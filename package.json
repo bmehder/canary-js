@@ -1,6 +1,6 @@
 {
 	"name": "canary-js",
-	"version": "0.9.7",
+	"version": "0.9.8",
 	"description": "A minimalist, functional JavaScript toolkit for mere mortals. Curried, data-last, and easy to learn.",
 	"main": "index.js",
 	"types": "index.d.ts",
