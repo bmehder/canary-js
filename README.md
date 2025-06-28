@@ -71,7 +71,7 @@ console.log(result) // → [12, 14]
 
 ### Strings
 
-`split`, `trim`, `toUpper`, `toLower`, `startsWith`, `endsWith`
+`split`, `trim`, `trimStart`, `trimEnd`, `repeat`, `toUpper`, `toLower`, `startsWith`, `endsWith`, `padStart`, `padEnd`, 
 
 ### Numbers
 
@@ -79,7 +79,7 @@ console.log(result) // → [12, 14]
 
 ### Objects
 
-`keys`, `values`, `entries`, `fromEntries`, `prop`
+`keys`, `values`, `entries`, `fromEntries`, `prop`, `freeze`, `seal`, `is`
 
 ### Comparison & Boolean
 

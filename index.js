@@ -30,6 +30,11 @@ export const split = sep => str => str.split(sep)
 export const toLower = str => str.toLowerCase()
 export const toUpper = str => str.toUpperCase()
 export const trim = str => str.trim()
+export const trimStart = str => str.trimStart()
+export const trimEnd = str => str.trimEnd()
+export const repeat = n => str => str.repeat(n)
+export const padStart = len => str => str.padStart(len)
+export const padEnd = len => str => str.padEnd(len)
 
 // Object
 export const keys = obj => Object.keys(obj)
@@ -37,6 +42,9 @@ export const values = obj => Object.values(obj)
 export const entries = obj => Object.entries(obj)
 export const fromEntries = xs => Object.fromEntries(xs)
 export const prop = key => obj => obj[key]
+export const freeze = obj => Object.freeze(obj)
+export const seal = obj => Object.seal(obj)
+export const is = a => b => Object.is(a, b)
 
 // Math & Logic
 export const add = a => b => a + b

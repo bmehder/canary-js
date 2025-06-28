@@ -232,6 +232,66 @@ split('-')('a-b-c') // → ['a', 'b', 'c']
 trim('  hello  ') // → 'hello'
 ```
 
+### `trimStart`
+
+**Description:** Removes leading whitespace from a string.
+
+**Signature:** `String → String`
+
+```js
+trimStart('   hello') // → 'hello'
+```
+
+---
+
+### `trimEnd`
+
+**Description:** Removes trailing whitespace from a string.
+
+**Signature:** `String → String`
+
+```js
+trimEnd('hello   ') // → 'hello'
+```
+
+---
+
+### `repeat`
+
+**Description:** Repeats the string `n` times.
+
+**Signature:** `Number → String → String`
+
+```js
+repeat(3)('hi') // → 'hihihi'
+```
+
+---
+
+### `padStart`
+
+**Description:** Pads the beginning of a string with spaces until it reaches the given length.
+
+**Signature:** `Number → String → String`
+
+```js
+padStart(5)('42') // → '   42'
+```
+
+---
+
+### `padEnd`
+
+**Description:** Pads the end of a string with spaces until it reaches the given length.
+
+**Signature:** `Number → String → String`
+
+```js
+padEnd(5)('42') // → '42   '
+```
+
+---
+
 ### `toUpper`
 
 **Description:** Converts a string to uppercase.
@@ -487,6 +547,45 @@ prop('a')({ a: 1, b: 2 }) // → 1
 ```
 
 ---
+
+### `freeze`
+
+**Description:** Makes an object immutable by freezing its properties.
+
+**Signature:** `Object → Object`
+
+```js
+const obj = freeze({ a: 1 })
+obj.a = 2
+obj.a // → 1
+```
+
+---
+
+### `seal`
+
+**Description:** Seals an object to prevent new properties from being added or existing properties from being removed.
+
+**Signature:** `Object → Object`
+
+```js
+const obj = seal({ a: 1 })
+obj.b = 2
+obj.b // → undefined
+```
+
+---
+
+### `is`
+
+**Description:** Determines whether two values are the same value (like `===` but handles `NaN` and `-0` correctly).
+
+**Signature:** `a → a → Boolean`
+
+```js
+is(NaN)(NaN) // → true
+is(0)(-0)    // → false
+```
 
 ## Comparison & Boolean
 

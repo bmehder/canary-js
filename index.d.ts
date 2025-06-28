@@ -32,6 +32,11 @@ export declare const split: (sep: string) => (str: string) => string[]
 export declare const toLower: (str: string) => string
 export declare const toUpper: (str: string) => string
 export declare const trim: (str: string) => string
+export declare const trimStart: (str: string) => string
+export declare const trimEnd: (str: string) => string
+export declare const repeat: (n: number) => (str: string) => string
+export declare const padStart: (length: number) => (str: string) => string
+export declare const padEnd: (length: number) => (str: string) => string
 
 // Object
 export declare const keys: (obj: object) => string[]
@@ -39,6 +44,9 @@ export declare const values: (obj: object) => any[]
 export declare const entries: (obj: object) => [string, any][]
 export declare const fromEntries: (entries: [string, any][]) => object
 export declare const prop: <T, K extends keyof T>(key: K) => (obj: T) => T[K]
+export declare const freeze: <T>(obj: T) => Readonly<T>
+export declare const seal: <T>(obj: T) => T
+export declare const is: (a: unknown) => (b: unknown) => boolean
 
 // Math & Logic
 export declare const add: (a: number) => (b: number) => number
