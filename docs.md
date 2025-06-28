@@ -96,7 +96,7 @@ some(x => x > 2)([1, 2, 3]) // → true
 every(x => x < 5)([1, 2, 3]) // → true
 ```
 
-### `at`
+### `at` (alias: `nth`)
 
 **Description:** Gets the element at a given index (supports negative indexing).
 
@@ -638,6 +638,22 @@ uncurry(a => b => a + b)(1, 2) // → 3
 
 ```js
 addIndex(map)((x, i) => x + i)([10, 20, 30]) // → [10, 21, 32]
+```
+
+---
+
+### `flip`
+
+**Description:** Reverses the order of arguments for a curried binary function.
+
+**Signature:** `(a → b → c) → b → a → c`
+
+```js
+const subtract = a => b => a - b
+
+const flipped = flip(subtract)
+
+flipped(2)(10) // → -8
 ```
 
 ---

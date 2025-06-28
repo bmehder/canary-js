@@ -17,6 +17,7 @@ export const findLast = fn => xs => [...xs].reverse().find(fn)
 export const some = fn => xs => xs.some(fn)
 export const every = fn => xs => xs.every(fn)
 export const at = idx => xs => xs.at(idx)
+export const nth = at
 export const includes = val => xs => xs.includes(val)
 export const sort = fn => xs => [...xs].sort(fn)
 export const reverse = xs => [...xs].reverse()
@@ -68,12 +69,19 @@ export const cond = pairs => x => {
 }
 
 // Function
-export const curry = fn =>
-	function curried(...args) {
-		return args.length >= fn.length
-			? fn.apply(this, args)
-			: (...next) => curried.apply(this, args.concat(next))
-	}
+// export const curry = fn =>
+// 	function curried(...args) {
+// 		return args.length >= fn.length
+// 			? fn.apply(this, args)
+// 			: (...next) => curried.apply(this, args.concat(next))
+// 	}
+
+export const curry =
+	fn =>
+	(...args) =>
+		args.length >= fn.length
+			? fn.apply(null, args)
+			: (...next) => curry(fn)(...args.concat(next))
 
 export const uncurry =
 	fn =>
@@ -92,6 +100,7 @@ export const identity = x => x
 export const always = x => () => x
 export const tap = fn => x => (fn(x), x)
 export const addIndex = fn => f => xs => fn((x, i) => f(x, i))(xs)
+export const flip = fn => x => y => fn(y)(x)
 
 // ADT
 export const createADT = variants => {

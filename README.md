@@ -67,7 +67,7 @@ console.log(result) // → [12, 14]
 
 ### Arrays
 
-`map`, `filter`, `reduce`, `find`, `findIndex`, `findLast`, `indexOf`, `lastIndexOf`, `some`, `every`, `includes`, `at`, `flat`, `flatMap`, `slice`, `concat`, `join`, `reverse`, `sort`, `length`
+`map`, `filter`, `reduce`, `find`, `findIndex`, `findLast`, `indexOf`, `lastIndexOf`, `some`, `every`, `includes`, `at` (`nth`), `flat`, `flatMap`, `slice`, `concat`, `join`, `reverse`, `sort`, `length`
 
 ### Strings
 
@@ -87,7 +87,7 @@ console.log(result) // → [12, 14]
 
 ### Core Utilities
 
-`identity`, `always`, `tap`, `pipe`, `compose`, `curry`, `uncurry`, `addIndex`
+`identity`, `always`, `tap`, `pipe`, `compose`, `curry`, `uncurry`, `addIndex`, `flip`
 
 ### Control Flow
 
@@ -104,7 +104,7 @@ console.log(result) // → [12, 14]
 | Feature                                          | Where to look   |
 | ------------------------------------------------ | --------------- |
 | Placeholders (`__`)                              | Ramda           |
-| Fancy combinators (`flip`, `juxt`, `converge`)   | Ramda           |
+| Fancy combinators (`juxt`, `converge`)           | Ramda           |
 | Fantasy‑Land‑certified ADTs                      | SanctuaryJS     |
 | Lenses, traversals, profunctors (brace yourself) | Ramda & friends |
 

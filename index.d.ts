@@ -19,6 +19,7 @@ export declare const findLast: <T>(fn: (x: T) => boolean) => (xs: T[]) => T | un
 export declare const some: <T>(fn: (x: T) => boolean) => (xs: T[]) => boolean
 export declare const every: <T>(fn: (x: T) => boolean) => (xs: T[]) => boolean
 export declare const at: (idx: number) => <T>(xs: T[]) => T | undefined
+export { at as nth }
 export declare const includes: <T>(val: T) => (xs: T[]) => boolean
 export declare const sort: <T>(fn: (a: T, b: T) => number) => (xs: T[]) => T[]
 export declare const reverse: <T>(xs: T[]) => T[]
@@ -69,3 +70,6 @@ export declare const identity: <T>(x: T) => T
 export declare const always: <T>(x: T) => () => T
 export declare const tap: <T>(fn: (x: T) => any) => (x: T) => T
 export declare const addIndex: <T>(fn: (f: (x: T, i: number) => any) => (xs: T[]) => any) => (f: (x: T, i: number) => any) => (xs: T[]) => any
+export declare const flip: <A, B, C>(
+	fn: (a: A) => (b: B) => C
+) => (b: B) => (a: A) => C
