@@ -70,6 +70,10 @@ export declare const gte: (a: number) => (b: number) => boolean
 // Control Flow
 export declare const ifElse: <T>(pred: (x: T) => boolean) => (onTrue: (x: T) => any) => (onFalse: (x: T) => any) => (x: T) => any
 export declare const cond: <T>(pairs: Array<[(x: T) => boolean, (x: T) => any]>) => (x: T) => any
+export function tryCatch<A, B>(
+	tryFn: (x: A) => B,
+	catchFn: (err: unknown, x: A) => B
+): (x: A) => B
 
 // Function
 export declare const pipe: (...fns: Array<(x: any) => any>) => (x: any) => any

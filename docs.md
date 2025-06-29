@@ -702,9 +702,9 @@ const cmp = binary(subtract)
 **Signature:** `(a → b → c → d) → (a, b, c) → d`
 
 ```js
-const describe = trinary(x => i => arr => `${x} at ${i}`)
+const describe = trinary(x => i => arr => `${x} at ${i} in ${arr}`)
 [10, 20, 30].map(describe)
-// → ['10 at 0', '20 at 1', '30 at 2']
+// → ['10 at 0 in [10, 20, 30]', '20 at 1 in [10, 20, 30]', '30 at 2 in [10, 20, 30]']
 ```
 
 ---
@@ -732,6 +732,25 @@ cond([
   [x => x < 0, () => 'negative'],
   [x => x > 0, () => 'positive']
 ])(-1) // → 'negative'
+```
+
+### `tryCatch`
+
+**Description:** Wraps a potentially unsafe function and provides a fallback in case of error. The fallback receives both the error and the original input. Useful in pipelines when working with functions that might throw (like `JSON.parse`, `decodeURIComponent`, etc).
+
+**Signature:** `(a → b) → (Error, a → b) → a → b`
+
+```js
+const safeParse = tryCatch(
+  JSON.parse,
+  (err, input) => {
+    console.warn('Parse failed for:', input, err.message)
+    return {}
+  }
+)
+
+safeParse('{"ok": true}') // → { ok: true }
+safeParse('not JSON')     // → {} and logs a warning
 ```
 
 ---

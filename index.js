@@ -76,14 +76,15 @@ export const cond = pairs => x => {
 	throw new Error('No matching condition in cond')
 }
 
-// Function
-// export const curry = fn =>
-// 	function curried(...args) {
-// 		return args.length >= fn.length
-// 			? fn.apply(this, args)
-// 			: (...next) => curried.apply(this, args.concat(next))
-// 	}
+export const tryCatch = tryFn => catchFn => x => {
+	try {
+		return tryFn(x)
+	} catch (err) {
+		return catchFn(err, x)
+	}
+}
 
+// Function
 export const curry =
 	fn =>
 	(...args) =>

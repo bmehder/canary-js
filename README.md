@@ -97,7 +97,7 @@ console.log(result) // → [12, 14]
 
 ### Control Flow
 
-`ifElse`, `cond`
+`ifElse`, `cond`, `tryCatch`
 
 ### ADT Helpers
 
