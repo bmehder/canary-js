@@ -1,4 +1,4 @@
-// CanaryJS Core Functions (v0.9)
+// CanaryJS Core Functions
 
 // Array
 export const flat = xs => xs.flat()

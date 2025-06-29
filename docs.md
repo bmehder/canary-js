@@ -242,8 +242,6 @@ trim('  hello  ') // → 'hello'
 trimStart('   hello') // → 'hello'
 ```
 
----
-
 ### `trimEnd`
 
 **Description:** Removes trailing whitespace from a string.
@@ -253,8 +251,6 @@ trimStart('   hello') // → 'hello'
 ```js
 trimEnd('hello   ') // → 'hello'
 ```
-
----
 
 ### `repeat`
 
@@ -266,8 +262,6 @@ trimEnd('hello   ') // → 'hello'
 repeat(3)('hi') // → 'hihihi'
 ```
 
----
-
 ### `padStart`
 
 **Description:** Pads the beginning of a string with spaces until it reaches the given length.
@@ -278,8 +272,6 @@ repeat(3)('hi') // → 'hihihi'
 padStart(5)('42') // → '   42'
 ```
 
----
-
 ### `padEnd`
 
 **Description:** Pads the end of a string with spaces until it reaches the given length.
@@ -289,8 +281,6 @@ padStart(5)('42') // → '   42'
 ```js
 padEnd(5)('42') // → '42   '
 ```
-
----
 
 ### `toUpper`
 
@@ -438,62 +428,6 @@ pow(2)(3) // → 8
 
 ---
 
----
-
-### `lt`
-
-**Description:** Returns `true` if the second value is less than the first.
-
-**Signature:** `Number → Number → Boolean`
-
-```js
-lt(5)(3) // → true
-lt(3)(5) // → false
-```
-
----
-
-### `lte`
-
-**Description:** Returns `true` if the second value is less than or equal to the first.
-
-**Signature:** `Number → Number → Boolean`
-
-```js
-lte(5)(5) // → true
-lte(5)(4) // → true
-lte(5)(6) // → false
-```
-
----
-
-### `gt`
-
-**Description:** Returns `true` if the second value is greater than the first.
-
-**Signature:** `Number → Number → Boolean`
-
-```js
-gt(3)(5) // → true
-gt(5)(3) // → false
-```
-
----
-
-### `gte`
-
-**Description:** Returns `true` if the second value is greater than or equal to the first.
-
-**Signature:** `Number → Number → Boolean`
-
-```js
-gte(5)(5) // → true
-gte(4)(5) // → true
-gte(6)(5) // → false
-```
-
----
-
 ## Objects
 
 ### `keys`
@@ -546,8 +480,6 @@ fromEntries([['a', 1]]) // → { a: 1 }
 prop('a')({ a: 1, b: 2 }) // → 1
 ```
 
----
-
 ### `freeze`
 
 **Description:** Makes an object immutable by freezing its properties.
@@ -560,8 +492,6 @@ obj.a = 2
 obj.a // → 1
 ```
 
----
-
 ### `seal`
 
 **Description:** Seals an object to prevent new properties from being added or existing properties from being removed.
@@ -573,8 +503,6 @@ const obj = seal({ a: 1 })
 obj.b = 2
 obj.b // → undefined
 ```
-
----
 
 ### `is`
 
@@ -738,8 +666,6 @@ uncurry(a => b => a + b)(1, 2) // → 3
 ```js
 addIndex(map)((x, i) => x + i)([10, 20, 30]) // → [10, 21, 32]
 ```
-
----
 
 ### `flip`
 

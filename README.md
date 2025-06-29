@@ -28,6 +28,12 @@ npm i canary-js
 
 Zero dependencies. ES Module. Tree‑shakable.
 
+Also available via CDN:
+
+```js
+import * as C from "https://esm.sh/canary-js@latest"
+```
+
 ---
 
 ## Quick Start
@@ -67,15 +73,15 @@ console.log(result) // → [12, 14]
 
 ### Arrays
 
-`map`, `filter`, `reduce`, `find`, `findIndex`, `findLast`, `indexOf`, `lastIndexOf`, `some`, `every`, `includes`, `at` (`nth`), `flat`, `flatMap`, `slice`, `concat`, `join`, `reverse`, `sort`, `length`
+`map`, `filter`, `reduce`, `find`, `findIndex`, `findLast`, `indexOf`, `lastIndexOf`, `some`, `every`, `includes`, `at`, `flat`, `flatMap`, `slice`, `concat`, `join`, `reverse`, `sort`, `length`
 
 ### Strings
 
-`split`, `trim`, `trimStart`, `trimEnd`, `repeat`, `toUpper`, `toLower`, `startsWith`, `endsWith`, `padStart`, `padEnd`, 
+`split`, `trim`, `trimStart`, `trimEnd`, `repeat`, `toUpper`, `toLower`, `startsWith`, `endsWith`, `padStart`, `padEnd`
 
 ### Numbers
 
-`add`, `subtract`, `multiply`, `divide`, `modulo`, `abs`, `floor`, `round`, `ceil`, `pow`, `not`, `negate`
+`add`, `subtract`, `multiply`, `divide`, `modulo`, `abs`, `floor`, `round`, `ceil`, `pow`
 
 ### Objects
 
@@ -83,7 +89,7 @@ console.log(result) // → [12, 14]
 
 ### Comparison & Boolean
 
-`equals`, `not`, `negate`, `eq`, `lt`, `lte`, `gt`, `gte`
+`equals`, `not`, `negate`, `lt`, `lte`, `gt`, `gte`
 
 ### Core Utilities
 
