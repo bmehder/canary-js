@@ -109,6 +109,8 @@ export const always = x => () => x
 export const tap = fn => x => (fn(x), x)
 export const addIndex = fn => f => xs => fn((x, i) => f(x, i))(xs)
 export const flip = fn => x => y => fn(y)(x)
+export const binary = fn => (a, b) => fn(a)(b)
+export const trinary = fn => (a, b, c) => fn(a)(b)(c)
 
 // ADT
 export const createADT = variants => {

@@ -681,6 +681,32 @@ const flipped = flip(subtract)
 flipped(2)(10) // → -8
 ```
 
+### `binary`
+
+**Description:** Converts a curried binary function into a standard 2-argument function, useful for `reduce`, `sort`, and other native JS methods.
+
+**Signature:** `(a → b → c) → (a, b) → c`
+
+```js
+const sum = binary(add)
+[1, 2, 3].reduce(sum) // → 6
+
+const cmp = binary(subtract)
+[3, 2, 1].sort(cmp) // → [1, 2, 3]
+```
+
+### `trinary`
+
+**Description:** Converts a curried ternary function into a standard 3-argument function. Useful when working with methods like `map`, `filter`, or `forEach` that provide `(element, index, array)`.
+
+**Signature:** `(a → b → c → d) → (a, b, c) → d`
+
+```js
+const describe = trinary(x => i => arr => `${x} at ${i}`)
+[10, 20, 30].map(describe)
+// → ['10 at 0', '20 at 1', '30 at 2']
+```
+
 ---
 
 ## Control Flow

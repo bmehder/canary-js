@@ -81,3 +81,7 @@ export declare const addIndex: <T>(fn: (f: (x: T, i: number) => any) => (xs: T[]
 export declare const flip: <A, B, C>(
 	fn: (a: A) => (b: B) => C
 ) => (b: B) => (a: A) => C
+export function binary<A, B, C>(fn: (a: A) => (b: B) => C): (a: A, b: B) => C
+export function trinary<A, B, C, D>(
+	fn: (a: A) => (b: B) => (c: C) => D
+): (a: A, b: B, c: C) => D
