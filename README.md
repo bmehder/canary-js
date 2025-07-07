@@ -63,9 +63,9 @@ console.log(result) // → [12, 14]
 | **Curried & data‑last**    | Functions take arguments one at a time, with data passed last—perfect for `pipe`. |
 | **Pure & predictable**     | No mutation. Functions always return the same output for the same input.          |
 | **Partial application**    | You can pass fewer arguments to get a new function. Build behavior gradually.     |
-| **Built‑ins first**        | Array, String, Number, Object, Boolean methods—it’s curried and calm, innit.       |
-| **Ramda‑compatible names** | Familiar territory if you graduate.                                               |
-| **Small surface**          | \~60 functions; your brain remains un‑overheated.                                 |
+| **Built‑ins first**        | Array, String, Number, Object, and Boolean methods       |
+| **Ramda‑compatible names** | Familiar vocabulary if you move to Ramda.                                               |
+| **Small surface**          | \~80 functions; your brain remains underwhelmed.                                 |
 
 ---
 
