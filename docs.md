@@ -601,6 +601,25 @@ identity(42) // → 42
 always(3)() // → 3
 ```
 
+### `converge`
+
+**Description:** Applies two functions to the same input, then combines their results using a curried function.
+
+**Signature:** `(b → c → d) → (a → b) → (a → c) → a → d`
+
+**Note:**  
+This is a curried version of what’s known in functional programming as the **S combinator**. It allows you to fork a single input into two branches, apply different functions to each, and then recombine them with a third.
+
+```js
+const double = x => x * 2
+const increment = x => x + 1
+const add = a => b => a + b
+
+const compute = converge(add)(double)(increment)
+
+compute(3) // → 10 (double(3) + increment(3) → 6 + 4)
+```
+
 ### `tap`
 
 **Description:** Applies a function for side effects, then returns the input.

@@ -79,6 +79,11 @@ export function tryCatch<A, B>(
 export declare const pipe: (...fns: Array<(x: any) => any>) => (x: any) => any
 export declare const compose: (...fns: Array<(x: any) => any>) => (x: any) => any
 export declare const identity: <T>(x: T) => T
+export declare const converge: <A, B, C>(
+	fn: (x: B) => (y: C) => any
+) => (
+	g: (a: A) => B
+) => (h: (a: A) => C) => (a: A) => ReturnType<ReturnType<typeof fn>>
 export declare const always: <T>(x: T) => () => T
 export declare const tap: <T>(fn: (x: T) => any) => (x: T) => T
 export declare const addIndex: <T>(fn: (f: (x: T, i: number) => any) => (xs: T[]) => any) => (f: (x: T, i: number) => any) => (xs: T[]) => any

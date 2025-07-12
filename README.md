@@ -93,7 +93,7 @@ console.log(result) // → [12, 14]
 
 ### Core Utilities
 
-`identity`, `always`, `tap`, `pipe`, `compose`, `curry`, `uncurry`, `addIndex`, `flip`, `binary`, `trinary`
+`identity`, `always`, `converge`, `tap`, `pipe`, `compose`, `curry`, `uncurry`, `addIndex`, `flip`, `binary`, `trinary`
 
 ### Control Flow
 

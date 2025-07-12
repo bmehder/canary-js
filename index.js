@@ -107,6 +107,7 @@ export const compose =
 		fns.reduceRight((v, f) => f(v), x)
 export const identity = x => x
 export const always = x => () => x
+export const converge = f => g => h => x => f(g(x))(h(x))
 export const tap = fn => x => (fn(x), x)
 export const addIndex = fn => f => xs => fn((x, i) => f(x, i))(xs)
 export const flip = fn => x => y => fn(y)(x)
