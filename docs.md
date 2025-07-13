@@ -539,7 +539,7 @@ equals(2)(2) // → true
 
 ### `lt`
 
-**Description:** Checks if the second value is less than the first.
+**Description:** Checks if the first value is less than the second.
 
 **Signature:** `Number → Number → Boolean`
 
@@ -549,7 +549,7 @@ lt(10)(5) // → true
 
 ### `lte`
 
-**Description:** Checks if the second value is less than or equal to the first.
+**Description:** Checks if the first value is less than or equal to the second.
 
 **Signature:** `Number → Number → Boolean`
 
@@ -559,7 +559,7 @@ lte(10)(10) // → true
 
 ### `gt`
 
-**Description:** Checks if the second value is greater than the first.
+**Description:** Checks if the first value is greater than the second.
 
 **Signature:** `Number → Number → Boolean`
 
@@ -569,7 +569,7 @@ gt(5)(10) // → true
 
 ### `gte`
 
-**Description:** Checks if the second value is greater than or equal to the first.
+**Description:** Checks if the first value is greater than or equal to the second.
 
 **Signature:** `Number → Number → Boolean`
 
