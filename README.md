@@ -1,6 +1,9 @@
 # CanaryJS
 
-[![npm version](https://img.shields.io/npm/v/canary-js.svg)](https://www.npmjs.com/package/canary-js)
+[![npm version](https://img.shields.io/npm/v/canary-js)](https://www.npmjs.com/package/canary-js)
+[![License: MIT](https://img.shields.io/npm/l/canary-js)](https://opensource.org/licenses/MIT)
+[![Minified size](https://img.shields.io/bundlephobia/min/canary-js)](https://bundlephobia.com/package/canary-js)
+[![Types](https://badgen.net/npm/types/canary-js)](https://www.npmjs.com/package/canary-js)
 
 
 *A minimalist, functional JavaScript toolkit for mere mortals.*
