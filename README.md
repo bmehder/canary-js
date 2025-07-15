@@ -113,7 +113,7 @@ console.log (result) // → [12, 14]
 | Feature                                          | Where to look   |
 | ------------------------------------------------ | --------------- |
 | Placeholders (`__`)                              | Ramda           |
-| Fancy combinators (`juxt`, `converge`)           | Ramda           |
+| Fancy combinators (`juxt`, `lens`, `zipWith`)    | Ramda           |
 | Fantasy‑Land‑certified ADTs                      | SanctuaryJS     |
 | Lenses, traversals, profunctors (brace yourself) | Ramda & friends |
 
