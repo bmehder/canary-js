@@ -39,19 +39,22 @@ import * as C from "https://esm.sh/canary-js@latest"
 ## Quick Start
 
 ```js
-import { pipe, map, filter, add } from 'canaryjs'
+import * as C from 'canary-js'
 
-const isEven = n => n % 2 === 0
-const add10 = add(10)
+const isEven = C.pipe (
+  C.flip (C.modulo) (2),
+  C.equals (0)
+)
+const add10 = C.add (10)
 
-const transform = pipe(
-  filter(isEven),
-  map(add10)
+const transform = C.pipe (
+  C.filter (isEven),
+  C.map (add10)
 )
 
-const result = transform([1, 2, 3, 4])
+const result = transform ([1, 2, 3, 4])
 
-console.log(result) // → [12, 14]
+console.log (result) // → [12, 14]
 ```
 
 ---
