@@ -76,7 +76,7 @@ findIndex(x => x === 2)([1, 2, 3]) // → 1
 findLast(x => x % 2 === 0)([1, 2, 4, 6, 3]) // → 6
 ```
 
-### `some`
+### `some` (alias: `any`)
 
 **Description:** Returns true if at least one element matches a predicate.
 
@@ -86,7 +86,7 @@ findLast(x => x % 2 === 0)([1, 2, 4, 6, 3]) // → 6
 some(x => x > 2)([1, 2, 3]) // → true
 ```
 
-### `every`
+### `every` (alias: `all`)
 
 **Description:** Returns true if all elements match a predicate.
 

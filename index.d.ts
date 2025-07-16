@@ -17,7 +17,9 @@ export declare const find: <T>(fn: (x: T) => boolean) => (xs: T[]) => T | undefi
 export declare const findIndex: <T>(fn: (x: T) => boolean) => (xs: T[]) => number
 export declare const findLast: <T>(fn: (x: T) => boolean) => (xs: T[]) => T | undefined
 export declare const some: <T>(fn: (x: T) => boolean) => (xs: T[]) => boolean
+export { some as any }
 export declare const every: <T>(fn: (x: T) => boolean) => (xs: T[]) => boolean
+export { every as all }
 export declare const at: (idx: number) => <T>(xs: T[]) => T | undefined
 export { at as nth }
 export declare const includes: <T>(val: T) => (xs: T[]) => boolean

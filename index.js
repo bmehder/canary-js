@@ -2,7 +2,7 @@
 
 // Array
 export const flat = xs => xs.flat()
-export const concat = ys => xs => xs.concat(ys)
+export const concat = ys => xs => ys.concat(xs)
 export const join = sep => xs => xs.join(sep)
 export const indexOf = val => xs => xs.indexOf(val)
 export const lastIndexOf = val => xs => xs.lastIndexOf(val)
@@ -15,7 +15,9 @@ export const find = fn => xs => xs.find(fn)
 export const findIndex = fn => xs => xs.findIndex(fn)
 export const findLast = fn => xs => [...xs].reverse().find(fn)
 export const some = fn => xs => xs.some(fn)
+export const any = some
 export const every = fn => xs => xs.every(fn)
+export const all = every
 export const at = idx => xs => xs.at(idx)
 export const nth = at
 export const includes = val => xs => xs.includes(val)
