@@ -512,7 +512,7 @@ obj.b // → undefined
 
 ```js
 is(NaN)(NaN) // → true
-is(0)(-0)    // → false
+is(0)(-0) // → false
 ```
 
 ## Comparison & Boolean
@@ -638,8 +638,8 @@ tap(console.log)(42) // → logs 42, returns 42
 
 ```js
 pipe(
-  x => x + 1,
-  x => x * 2
+	x => x + 1,
+	x => x * 2
 )(3) // → 8
 ```
 
@@ -651,8 +651,8 @@ pipe(
 
 ```js
 compose(
-  x => x * 2,
-  x => x + 1
+	x => x * 2,
+	x => x + 1
 )(3) // → 8
 ```
 
@@ -707,11 +707,9 @@ flipped(2)(10) // → -8
 **Signature:** `(a → b → c) → (a, b) → c`
 
 ```js
-const sum = binary(add)
-[1, 2, 3].reduce(sum) // → 6
+const sum = binary(add)[(1, 2, 3)].reduce(sum) // → 6
 
-const cmp = binary(subtract)
-[3, 2, 1].sort(cmp) // → [1, 2, 3]
+const cmp = binary(subtract)[(3, 2, 1)].sort(cmp) // → [1, 2, 3]
 ```
 
 ### `trinary`
@@ -721,8 +719,9 @@ const cmp = binary(subtract)
 **Signature:** `(a → b → c → d) → (a, b, c) → d`
 
 ```js
-const describe = trinary(x => i => arr => `${x} at ${i} in ${arr}`)
-[10, 20, 30].map(describe)
+const describe = trinary(x => i => arr => `${x} at ${i} in ${arr}`)[
+	(10, 20, 30)
+].map(describe)
 // → ['10 at 0 in [10, 20, 30]', '20 at 1 in [10, 20, 30]', '30 at 2 in [10, 20, 30]']
 ```
 
@@ -748,8 +747,8 @@ ifElse(x => x > 0)(() => 'positive')(() => 'non-positive')(1) // → 'positive'
 
 ```js
 cond([
-  [x => x < 0, () => 'negative'],
-  [x => x > 0, () => 'positive']
+	[x => x < 0, () => 'negative'],
+	[x => x > 0, () => 'positive'],
 ])(-1) // → 'negative'
 ```
 
@@ -760,49 +759,50 @@ cond([
 **Signature:** `(a → b) → (Error, a → b) → a → b`
 
 ```js
-const safeParse = tryCatch(
-  JSON.parse,
-  (err, input) => {
-    console.warn('Parse failed for:', input, err.message)
-    return {}
-  }
-)
+const safeParse = tryCatch(JSON.parse, (err, input) => {
+	console.warn('Parse failed for:', input, err.message)
+	return {}
+})
 
 safeParse('{"ok": true}') // → { ok: true }
-safeParse('not JSON')     // → {} and logs a warning
+safeParse('not JSON') // → {} and logs a warning
 ```
 
 ---
 
-## ADT Helpers
-
-### `createADT`
-
-**Description:** Creates an algebraic data type with variants.
-
-**Signature:** `{ tag: (...args) → any } → ADT`
-
-```js
-const Option = createADT({ Some: x => x, None: () => null })
-Option.Some(42).toString() // → 'Some(42)'
-```
+## Discriminated Union Helpers
 
 ### `match`
 
-**Description:** Pattern-matches on ADT values. Includes a default branch.
+**Description:** Pattern-matches on discriminated unions (tagged objects), including those created with Zod's `z.discriminatedUnion`. You provide an object mapping `kind` (or `tag`) values to handler functions. Optionally, provide a fallback handler via `_`. The returned function dispatches to the appropriate handler based on the union's `kind` property.
 
-**Signature:** `{ tag: (...args) → b } → ADT → b`
-
-```js
-match({ Some: x => x + 1, None: () => 0 })(Option.Some(2)) // → 3
-```
-
-### `unwrap`
-
-**Description:** Extracts the first argument from an ADT.
-
-**Signature:** `ADT → a`
+**Signature:** `{ kind: (val) → b, ... , _?: (val) → b } → { kind: string, ... } → b`
 
 ```js
-unwrap(Option.Some(5)) // → 5
+import { z } from 'zod'
+
+// Define a discriminated union type
+const Shape = z.discriminatedUnion('kind', [
+	z.object({ kind: z.literal('circle'), radius: z.number().min(0) }),
+	z.object({
+		kind: z.literal('rectangle'),
+		width: z.number().min(0),
+		height: z.number().min(0),
+	}),
+])
+
+const area = match({
+	circle: ({ radius }) => Math.PI * radius * radius,
+	rectangle: ({ width, height }) => width * height,
+})
+area({ kind: 'circle', radius: 2 }) // → 12.566...
+area({ kind: 'rectangle', width: 3, height: 4 }) // → 12
+
+// With fallback handler for non-exhaustive unions
+const describe = match({
+	circle: ({ radius }) => `Circle of radius ${radius}`,
+	_: shape => `Unknown shape: ${shape.kind}`,
+})
+describe({ kind: 'circle', radius: 5 }) // → "Circle of radius 5"
+describe({ kind: 'triangle', base: 3, height: 4 }) // → "Unknown shape: triangle"
 ```

@@ -116,25 +116,8 @@ export const flip = fn => x => y => fn(y)(x)
 export const binary = fn => (a, b) => fn(a)(b)
 export const trinary = fn => (a, b, c) => fn(a)(b)(c)
 
-// ADT
-export const createADT = variants => {
-	const type = {}
-	for (const tag in variants) {
-		type[tag] = (...args) => {
-			const val = Object.create(type)
-			val._tag = tag
-			val._args = args
-			val.toString = () => `${tag}(${args.join(', ')})`
-			return val
-		}
-	}
-	return type
-}
-
 export const match = cases => val => {
-	const handler = cases[val._tag] || cases._
-	if (!handler) throw new Error(`No match for ${val._tag}`)
-	return handler(...val._args)
+	const handler = cases[val.kind] ?? cases._
+	if (!handler) throw new Error(`No match for kind: ${val.kind}`)
+	return handler(val)
 }
-
-export const unwrap = x => x._args?.[0] ?? x
