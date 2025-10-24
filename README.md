@@ -1,4 +1,4 @@
-<file name=0 path=/Users/bradleymehder/Developer/Packages/canary-js/README.md># CanaryJS
+# CanaryJS
 
 [![npm version](https://img.shields.io/npm/v/canary-js)](https://www.npmjs.com/package/canary-js)
 [![License: MIT](https://img.shields.io/npm/l/canary-js)](https://opensource.org/licenses/MIT)
@@ -112,9 +112,9 @@ Example:
 import { z } from 'zod'
 import { match } from 'canary-js'
 
-const Shape = z.discriminatedUnion('type', [
-	z.object({ type: z.literal('circle'), radius: z.number() }),
-	z.object({ type: z.literal('rectangle'), width: z.number(), height: z.number() }),
+const Shape = z.discriminatedUnion('kind', [
+	z.object({ kind: z.literal('circle'), radius: z.number() }),
+	z.object({ kind: z.literal('rectangle'), width: z.number(), height: z.number() }),
 ])
 
 const area = match({
@@ -122,8 +122,8 @@ const area = match({
 	rectangle: ({ width, height }) => width * height,
 })
 
-const shape1 = Shape.parse({ type: 'circle', radius: 2 })
-const shape2 = Shape.parse({ type: 'rectangle', width: 3, height: 4 })
+const shape1 = Shape.parse({ kind: 'circle', radius: 2 })
+const shape2 = Shape.parse({ kind: 'rectangle', width: 3, height: 4 })
 
 console.log(area(shape1)) // → 12.566370614359172
 console.log(area(shape2)) // → 12
