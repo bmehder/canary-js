@@ -96,35 +96,11 @@ export function binary<A, B, C>(fn: (a: A) => (b: B) => C): (a: A, b: B) => C
 export function trinary<A, B, C, D>(
 	fn: (a: A) => (b: B) => (c: C) => D
 ): (a: A, b: B, c: C) => D
+
 // --- Pattern Matching for Discriminated Unions ---
 
-/**
- * Helper type: Given a discriminated union type T with a 'kind' property,
- * produces a mapping from each kind value to a handler function.
- * Optionally supports a fallback handler via `_`.
- * If the `_` property is not present, all cases must be handled.
- */
-export type MatchCases<T extends { kind: string }, Return> =
-  {
-    [K in T['kind']]: (value: Extract<T, { kind: K }>) => Return
-  }
-  & { _: (value: T) => Return }
-  | {
-    [K in T['kind']]: (value: Extract<T, { kind: K }>) => Return
-  };
+export declare function match<T extends { kind: string }, R>(
+  state: T,
+  cases: { [K in T['kind']]: (s: Extract<T, { kind: K }>) => R }
+): R
 
-/**
- * Pattern match on a value of a discriminated union with 'kind' property.
- * Enforces exhaustiveness unless a fallback (`_`) is provided.
- *
- * Example:
- *   const result = match(value, {
- *     foo: v => ...,
- *     bar: v => ...,
- *     _: v => ... // fallback (optional)
- *   });
- */
-export declare function match<T extends { kind: string }, Return>(
-  value: T,
-  cases: MatchCases<T, Return>
-): Return;

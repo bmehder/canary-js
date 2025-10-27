@@ -116,8 +116,10 @@ export const flip = fn => x => y => fn(y)(x)
 export const binary = fn => (a, b) => fn(a)(b)
 export const trinary = fn => (a, b, c) => fn(a)(b)(c)
 
-export const match = cases => val => {
-	const handler = cases[val.kind] ?? cases._
-	if (!handler) throw new Error(`No match for kind: ${val.kind}`)
-	return handler(val)
+export const match = (state, cases) => {
+  const handler = cases[state.kind] || cases._
+  if (!handler) {
+    throw new Error(`No handler for kind: ${state.kind}`)
+  }
+  return handler(state)
 }

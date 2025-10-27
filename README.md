@@ -104,7 +104,9 @@ console.log(result) // → [12, 14]
 
 CanaryJS no longer ships its own ADT constructor. Instead, it recommends using [Zod](https://github.com/colinhacks/zod) to define discriminated unions, then using `match` to pattern-match over them.
 
-> **Note:** There’s a naming collision here. Ramda also has a function named `match`, but theirs is for regular expression matching, while CanaryJS’s `match` is for pattern-matching over discriminated unions (sum types). So if you’re looking for regexes, reach for Ramda; if you’re looking for ADTs, CanaryJS and Zod have you covered.
+> **Note:** There’s a naming collision here. Ramda also has a function named `match`, but theirs is for regular expression matching, while CanaryJS’s `match` is for pattern-matching over discriminated unions (sum types).  
+> If you’re looking for regexes, reach for Ramda; if you’re looking for ADTs, CanaryJS and Zod have you covered.  
+> **Also note:** Unlike most CanaryJS functions, `match` is **not curried**—you must call it as `match(value, cases)`.
 
 Example:
 
@@ -113,20 +115,26 @@ import { z } from 'zod'
 import { match } from 'canary-js'
 
 const Shape = z.discriminatedUnion('kind', [
-	z.object({ kind: z.literal('circle'), radius: z.number() }),
-	z.object({ kind: z.literal('rectangle'), width: z.number(), height: z.number() }),
+  z.object({ kind: z.literal('circle'), radius: z.number() }),
+  z.object({ kind: z.literal('rectangle'), width: z.number(), height: z.number() }),
 ])
-
-const area = match({
-	circle: ({ radius }) => Math.PI * radius * radius,
-	rectangle: ({ width, height }) => width * height,
-})
 
 const shape1 = Shape.parse({ kind: 'circle', radius: 2 })
 const shape2 = Shape.parse({ kind: 'rectangle', width: 3, height: 4 })
 
-console.log(area(shape1)) // → 12.566370614359172
-console.log(area(shape2)) // → 12
+console.log(
+  match(shape1, {
+    circle: ({ radius }) => Math.PI * radius * radius,
+    rectangle: ({ width, height }) => width * height,
+  })
+) // → 12.566370614359172
+
+console.log(
+  match(shape2, {
+    circle: ({ radius }) => Math.PI * radius * radius,
+    rectangle: ({ width, height }) => width * height,
+  })
+) // → 12
 ```
 
 CanaryJS integrates with Zod for pragmatic ADTs. If you prefer fully‑spec’d ADTs like Maybe or Either, see SanctuaryJS.
