@@ -100,7 +100,9 @@ export function trinary<A, B, C, D>(
 // --- Pattern Matching for Discriminated Unions ---
 
 export declare function match<T extends { kind: string }, R>(
-  state: T,
-  cases: { [K in T['kind']]: (s: Extract<T, { kind: K }>) => R }
+	state: T,
+	cases: { [K in T['kind']]?: (s: Extract<T, { kind: K }>) => R } & {
+		_?: (s: T) => R
+	}
 ): R
 

@@ -774,35 +774,40 @@ safeParse('not JSON') // → {} and logs a warning
 
 ### `match`
 
-**Description:** A plain function for pattern matching on discriminated unions (e.g., those created with Zod’s `z.discriminatedUnion`). You provide the value and an object mapping `kind` (or `tag`) values to handler functions. Optionally, include a fallback handler via `_`. The function dispatches to the appropriate handler based on the union's `kind` property.
+**Description:** A plain function for pattern matching on discriminated unions (e.g., those created with Zod’s `z.discriminatedUnion`). You provide the value and an object mapping `kind (or tag)` values to handler functions. Optionally, include a fallback handler via _. The function dispatches to the appropriate handler based on the union’s kind property.
 
-**Signature:** `( { kind: string, ... }, { kind: (val) → b, ... , _?: (val) → b } ) → b`
+**Signature:** `(state: { kind: string, ... }, cases: { [kind]: (val) → b, ... , _?: (val) → b }) → b`
 
 ```js
 import { z } from 'zod'
 
 // Define a discriminated union type
 const Shape = z.discriminatedUnion('kind', [
-	z.object({ kind: z.literal('circle'), radius: z.number().positive(0) }),
-	z.object({
-		kind: z.literal('rectangle'),
-		width: z.number().positive(0),
-		height: z.number().positive(0),
-	}),
+  z.object({ kind: z.literal('circle'), radius: z.number().positive() }),
+  z.object({
+    kind: z.literal('rectangle'),
+    width: z.number().positive(),
+    height: z.number().positive(),
+  }),
 ])
 
-const area = match({
-	circle: ({ radius }) => Math.PI * radius * radius, // handler for 'circle' kind
-	rectangle: ({ width, height }) => width * height,  // handler for 'rectangle' kind
-})
-area({ kind: 'circle', radius: 2 }) // → 12.566...
-area({ kind: 'rectangle', width: 3, height: 4 }) // → 12
+// Using match without a fallback (must cover all cases explicitly)
+const area = (shape: z.infer<typeof Shape>) =>
+  match(shape, {
+    circle: ({ radius }) => Math.PI * radius * radius,   // handler for 'circle'
+    rectangle: ({ width, height }) => width * height,    // handler for 'rectangle'
+  })
+
+console.log(area({ kind: 'circle', radius: 2 }))          // → 12.566...
+console.log(area({ kind: 'rectangle', width: 3, height: 4 })) // → 12
 
 // With fallback handler for non-exhaustive unions
-const describe = match({
-	circle: ({ radius }) => `Circle of radius ${radius}`, // specific handler
-	_: shape => `Unknown shape: ${shape.kind}`,           // fallback handler
-})
-describe({ kind: 'circle', radius: 5 }) // → "Circle of radius 5"
-describe({ kind: 'triangle', base: 3, height: 4 }) // → "Unknown shape: triangle"
+const describe = (shape: any) =>
+  match(shape, {
+    circle: ({ radius }) => `Circle of radius ${radius}`, // specific handler
+    _: s => `Unknown shape: ${s.kind}`,                   // fallback handler
+  })
+
+console.log(describe({ kind: 'circle', radius: 5 }))             // → "Circle of radius 5"
+console.log(describe({ kind: 'triangle', base: 3, height: 4 }))  // → "Unknown shape: triangle"
 ```

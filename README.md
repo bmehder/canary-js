@@ -107,6 +107,7 @@ CanaryJS no longer ships its own ADT constructor. Instead, it recommends using [
 > **Note:** There’s a naming collision here. Ramda also has a function named `match`, but theirs is for regular expression matching, while CanaryJS’s `match` is for pattern-matching over discriminated unions (sum types).  
 > If you’re looking for regexes, reach for Ramda; if you’re looking for ADTs, CanaryJS and Zod have you covered.  
 > **Also note:** Unlike most CanaryJS functions, `match` is **not curried**—you must call it as `match(value, cases)`.
+> You may also provide a fallback handler _ that will be used if no specific case matches.
 
 Example:
 
@@ -135,6 +136,15 @@ console.log(
     rectangle: ({ width, height }) => width * height,
   })
 ) // → 12
+
+// With a fallback handler
+console.log(
+  match({ kind: 'triangle', base: 3, height: 4 }, {
+    circle: ({ radius }) => Math.PI * radius * radius,
+    rectangle: ({ width, height }) => width * height,
+    _: shape => `Unknown shape: ${shape.kind}`,  // fallback
+  })
+) // → "Unknown shape: triangle"
 ```
 
 CanaryJS integrates with Zod for pragmatic ADTs. If you prefer fully‑spec’d ADTs like Maybe or Either, see SanctuaryJS.
